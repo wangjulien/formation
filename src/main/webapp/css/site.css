@@ -1,0 +1,21 @@
+
+body {
+	padding-top:20px; padding-bottom:20px;
+	}
+	
+.msg-info {
+	color: red;
+}
+
+.meta {
+	color:#999; 
+	font-size:.9em; 
+	display:block;
+	}
+.meta em {
+	font-style:normal; 
+	font-weight:bold;
+	}
+
+
+#login-page.container {width:320px;}
