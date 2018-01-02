@@ -10,6 +10,7 @@ import javax.persistence.TypedQuery;
 import entity.Conseiller;
 import entity.Employee;
 import entity.Gerant;
+import util.Config;
 
 /**
  * Class DAO client qui utilise les statement prepares CRUD et interface
@@ -22,7 +23,7 @@ import entity.Gerant;
 @Stateless
 public class JpaConseillerDao extends AbstractJpaDao<Conseiller> implements IDaoConseiller {
 
-	@PersistenceContext(unitName = "org.formation.proxibanque")
+	@PersistenceContext(unitName = Config.JPA_UNIT_NAME)
 	private EntityManager em;
 
 	public JpaConseillerDao() {

@@ -10,6 +10,7 @@ import javax.persistence.TypedQuery;
 import entity.Client;
 import entity.ClientEntreprise;
 import entity.ClientParticulier;
+import util.Config;
 
 /**
  * Class DAO client qui utilise les statement prepares CRUD et interface
@@ -22,7 +23,7 @@ import entity.ClientParticulier;
 @Stateless
 public class JpaClientDao extends AbstractJpaDao<Client> implements IDaoClient {
 
-	@PersistenceContext(unitName = "org.formation.proxibanque")
+	@PersistenceContext(unitName = Config.JPA_UNIT_NAME)
 	private EntityManager em;
 
 	public JpaClientDao() {

@@ -127,8 +127,9 @@ public class UpdateClientServlet extends HttpServlet {
 			}
 
 		} catch (DaoException e) {
-			request.setAttribute("msg", "Echec de l'identification, veuillez vous reconnecter");
-			request.getRequestDispatcher("LoginServlet").include(request, response);
+			request.setAttribute("msg",
+					"Probleme en requetant la database : " + e.getMessage() + " veuillez vous reessayer");
+			request.getRequestDispatcher("ShowClientsServlet").forward(request, response);
 		}
 	}
 

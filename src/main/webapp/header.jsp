@@ -35,7 +35,7 @@
 											<li><a href="GestionCompteServlet">Gestion de compte</a></li>
 											<li><a href="GestionCarteServlet">Gestion de carte</a></li>
 										</ul></li>
-									<li><a href="virement.jsp">Virement</a></li>
+									<li><a href="VirementServlet">Virement</a></li>
 								</c:when>
 								
 								<c:when test="${user.role eq 'G'.charAt(0)}">
@@ -68,6 +68,5 @@
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/site.js"></script>
 
 </html>

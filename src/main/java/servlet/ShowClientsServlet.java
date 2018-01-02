@@ -61,7 +61,7 @@ public class ShowClientsServlet extends HttpServlet {
 
 		} catch (DaoException e) {
 			request.setAttribute("msg", "Echec de l'identification, veuillez vous reconnecter");
-			request.getRequestDispatcher("LoginServlet").include(request, response);
+			request.getRequestDispatcher("LoginServlet").forward(request, response);
 		}
 	}
 

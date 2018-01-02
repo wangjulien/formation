@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/site.css" />
-<title>Insert title here</title>
+<title>Gestion de compte</title>
 </head>
 <body>
 	<div class="container">
@@ -21,6 +21,8 @@
 						<li class="divider"></li>
 						<li><a href="GestionCompteServlet">Gestion de compte</a></li>
 						<li><a href="GestionCarteServlet">Gestion de carte</a></li>
+						<li class="divider"></li>
+						<li><a href="VirementServlet">Virement</a></li>
 					</ul>
 				</div>
 			</div>

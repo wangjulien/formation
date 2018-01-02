@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import entity.Agence;
+import util.Config;
 
 /**
  * Class DAO client qui utilise les statement prepares CRUD et interface
@@ -19,7 +20,7 @@ import entity.Agence;
 @Stateless
 public class JpaAgenceDao extends AbstractJpaDao<Agence> implements IDaoAgence {
 	
-	@PersistenceContext(unitName = "org.formation.proxibanque")
+	@PersistenceContext(unitName = Config.JPA_UNIT_NAME)
 	private EntityManager em;
 
 	public JpaAgenceDao() {

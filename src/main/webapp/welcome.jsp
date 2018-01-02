@@ -26,6 +26,8 @@
 								<li class="divider"></li>
 								<li><a href="GestionCompteServlet">Gestion de compte</a></li>
 								<li><a href="GestionCarteServlet">Gestion de carte</a></li>
+								<li class="divider"></li>
+								<li><a href="VirementServlet">Virement</a></li>
 
 							</c:when>
 

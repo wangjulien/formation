@@ -3,6 +3,8 @@ package dao;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import util.Config;
+
 /**
  * Class abstract DAO qui prepare certains requetes CRUD en utilisant
  *
@@ -12,7 +14,7 @@ import javax.persistence.PersistenceContext;
 
 public abstract class AbstractJpaDao<T> {
 
-	@PersistenceContext(unitName = "org.formation.proxibanque")
+	@PersistenceContext(unitName = Config.JPA_UNIT_NAME)
 	private EntityManager em;
 
 	public AbstractJpaDao() {

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/site.css" />
-<title>Insert title here</title>
+<title>Mettre a jour un conseiller</title>
 </head>
 <body>
 	<div class="container">
