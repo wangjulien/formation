@@ -13,8 +13,6 @@ import javax.servlet.http.HttpSession;
 
 import dao.DaoException;
 import dao.IDaoVirement;
-import entity.ClientEntreprise;
-import entity.ClientParticulier;
 import entity.Conseiller;
 import entity.Virement;
 import service.IConseillerService;
@@ -22,7 +20,7 @@ import service.IConseillerService;
 /**
  * Servlet implementation class ShowVirement
  */
-@WebServlet("/ShowVirementServlet")
+@WebServlet("/ShowVirement")
 public class ShowVirementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        @EJB
@@ -68,8 +66,6 @@ public class ShowVirementServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-
-			HttpSession session = request.getSession(false);
 
 			Long idClient=Long.parseLong(request.getParameter("idClient"));
 			List<Virement> virements = daoVirement.getVirementByIdClient(idClient);

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/site.css" />
-<title>Gestion de conseiller</title>
+<title>Reherche de virment</title>
 </head>
 <body>
 	<div class="container">
@@ -30,7 +30,7 @@
 			<div class="span9">
 				<strong class="msg-info">${msg}</strong> <br>
 				<h3>Lister tous les virements effectues par le client</h3>
-				<form class="well" action="VirementServlet" method="post">
+		
 						<table>
 							<tr>
 								<td>
