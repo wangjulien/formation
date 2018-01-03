@@ -51,7 +51,7 @@ public class VirementServlet extends HttpServlet {
 
 			Conseiller user = (Conseiller) session.getAttribute("user");
 			
-			// liste des clients du conseiller logge
+			// liste des clients du conseiller logger
 			request.setAttribute("clientList", user.getClientsList());
 			
 			// tous les client de la banque

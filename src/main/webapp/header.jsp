@@ -36,6 +36,7 @@
 											<li><a href="GestionCarteServlet">Gestion de carte</a></li>
 										</ul></li>
 									<li><a href="VirementServlet">Virement</a></li>
+									
 								</c:when>
 								
 								<c:when test="${user.role eq 'G'.charAt(0)}">

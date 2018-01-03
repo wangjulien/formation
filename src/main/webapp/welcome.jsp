@@ -28,6 +28,7 @@
 								<li><a href="GestionCarteServlet">Gestion de carte</a></li>
 								<li class="divider"></li>
 								<li><a href="VirementServlet">Virement</a></li>
+								<li><a href="ShowVirementServlet">Histories de virements</a></li>
 
 							</c:when>
 
