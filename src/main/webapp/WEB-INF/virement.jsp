@@ -81,4 +81,14 @@
 		</div>
 	</div>
 </body>
+
+<script src="js/jquery.min.js"></script>
+<script>  
+$('#debiteurselect').on('change',function(){
+        $(this).selectedIndex
+        $("#debcomptselect").text("Compte Courant JS")
+        
+    });
+</script>
+
 </html>
