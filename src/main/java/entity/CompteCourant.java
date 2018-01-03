@@ -4,6 +4,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *   
@@ -11,6 +12,7 @@ import javax.persistence.OneToOne;
  *
  */
 
+@XmlRootElement
 @Entity
 @DiscriminatorValue(value = "COMPTE_COURANT")
 public class CompteCourant extends Compte {

@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
@@ -15,6 +16,7 @@ import javax.persistence.InheritanceType;
  *
  */
 
+@XmlRootElement
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Employee {

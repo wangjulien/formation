@@ -2,6 +2,7 @@ package entity;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * La classe VisaPremium h�rite de Carte et a un num�ro de carte.
@@ -10,6 +11,7 @@ import javax.persistence.Entity;
  *
  */
 
+@XmlRootElement
 @Entity
 @DiscriminatorValue(value = "PREMIUM")
 public class VisaPremium extends Carte {

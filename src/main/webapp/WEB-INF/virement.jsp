@@ -29,45 +29,83 @@
 			<div class="span9">
 				<div id="login-page">
 					<strong class="msg-info">${msg}</strong> <br>
-					<h3>Compte information :</h3>
+					<h3>Effectuer un virement :</h3>
+
 					<form class="well" action="VirementServlet" method="post">
 						<table>
 							<tr>
-								<td>
-								<label for="name">Selectionnez un debiteur : </label>
-								<select class="form-control"  name="debiteurselect" id="debiteurselect" onchange="this.form.submit()">
-									<c:forEach items="${clientList}" var="client">
-										<option value="${client.id}">
-										${client.getNom()} ${client.getPrenom()} (${client.refClient})
-										</option>
-									</c:forEach>
+								<td><label for="listeClientSelect">Selectionnez un
+										debiteur</label> <select class="form-control" name="listeClientSelect">
+										<c:forEach items="${clientList}" var="client">
+											<c:if test="${client.compteCourant.etatActif}">
+												<option value="${client.id}-courant">(${client.refClient})
+													${client.getNom()} ${client.getPrenom()} Compte Courant :
+													${client.compteCourant.solde}</option>
+											</c:if>
+											<c:if test="${client.compteEpargne.etatActif}">
+												<option value="${client.id}-epargne">(${client.refClient})
+													${client.getNom()} ${client.getPrenom()} Compte Epargne :
+													${client.compteEpargne.solde}</option>
+											</c:if>
+										</c:forEach>
 								</select></td>
-								<td>
-								<label for="name">Selectionnez son compte a debiter : </label>
-								<select class="form-control"  name="debcomptselect" id="debcomptselect">
+							</tr>
+
+							<tr>
+								<td><label for="debiteurselect">Selectionnez un
+										debiteur : </label> <select class="form-control" name="debiteurselect"
+									id="debiteurselect" disabled>
+										<c:forEach items="${clientList}" var="client">
+											<option value="${client}">${client.getNom()}
+												${client.getPrenom()} (${client.refClient})</option>
+										</c:forEach>
+								</select></td>
+								<td><label for="debcomptselect">Selectionnez son
+										compte a debiter : </label> <select class="form-control"
+									name="debcomptselect" id="debcomptselect" disabled>
 										<option value="courant">Compte Courant</option>
-										<option value="epargne">Compte Epargne</option>									
+										<option value="epargne">Compte Epargne</option>
+								</select></td>
+							</tr>
+
+							<tr>
+								<td><label for="listeAllClientSelect">Selectionnez
+										un crediteur</label> <select class="form-control"
+									name="listeAllClientSelect">
+										<c:forEach items="${allClientList}" var="client">
+											<c:if test="${client.compteCourant.etatActif}">
+												<option value="${client.id}-courant">(${client.refClient})
+													${client.getNom()} ${client.getPrenom()} Compte Courant :
+													${client.compteCourant.solde}</option>
+											</c:if>
+											<c:if test="${client.compteEpargne.etatActif}">
+												<option value="${client.id}-epargne">(${client.refClient})
+													${client.getNom()} ${client.getPrenom()} Compte Epargne :
+													${client.compteEpargne.solde}</option>
+											</c:if>
+										</c:forEach>
+								</select></td>
+							</tr>
+
+							<tr>
+								<td><label for="crediteurselect">Selectionnez un
+										crediteur : </label> <select class="form-control"
+									name="crediteurselect" id="crediteurselect" disabled>
+										<c:forEach items="${allClientList}" var="client">
+											<option value="${client.id}">${client.getNom()}
+												${client.getPrenom()} (${client.refClient})</option>
+										</c:forEach>
+								</select></td>
+								<td><label for="crdcomptselect">Selectionnez son
+										compte a debiter : </label> <select class="form-control"
+									name="crdcomptselect" id="crdcomptselect" disabled>
+										<option value="courant">Compte Courant</option>
+										<option value="epargne">Compte Epargne</option>
 								</select></td>
 							</tr>
 							<tr>
-								<td>
-								<label for="name">Selectionnez un crediteur : </label>
-								<select class="form-control"  name="crediteurselect" id="crediteurselect" onchange="this.form.submit()">
-									<c:forEach items="${allClientList}" var="client">
-										<option value="${client.id}">
-										${client.getNom()} ${client.getPrenom()} (${client.refClient})
-										</option>
-									</c:forEach>
-								</select></td>
-								<td>
-								<label for="name">Selectionnez son compte a debiter : </label>
-								<select class="form-control"  name="crdcomptselect" id="crdcomptselect">
-										<option value="courant">Compte Courant</option>
-										<option value="epargne">Compte Epargne</option>									
-								</select></td>
-							</tr>
-							<tr>
-								<td><input type="text" name="montant" placeholder="Saisissez le montant" /></td>
+								<td><input type="text" name="montant"
+									placeholder="Saisissez le montant" /></td>
 							</tr>
 							<tr>
 								<td><input type="submit" value="Effectuer"
@@ -76,6 +114,36 @@
 							</tr>
 						</table>
 					</form>
+
+					<c:if
+						test="${not empty debiteur && not empty crediteur && not empty montant}">
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Debiteur</th>
+									<th>Nouveau Solde</th>
+									<th>Crediteur</th>
+									<th>Nouveau Solde</th>
+									<th>Montant vire</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>${debiteur.nom}${debiteur.prenom}</td>
+
+									<td>${depart.solde}</td>
+
+									<td>${crediteur.nom}${crediteur.prenom}</td>
+
+									<td>${cible.solde}</td>
+
+									<td>${montant}</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</c:if>
+
 				</div>
 			</div>
 		</div>
@@ -83,12 +151,12 @@
 </body>
 
 <script src="js/jquery.min.js"></script>
-<script>  
-$('#debiteurselect').on('change',function(){
-        $(this).selectedIndex
-        $("#debcomptselect").text("Compte Courant JS")
-        
-    });
+<script>
+	$('#debiteurselect').on('change', function() {
+		//         $(this).val()
+		//         $("#debcomptselect").text("Compte Courant JS")
+
+	});
 </script>
 
 </html>

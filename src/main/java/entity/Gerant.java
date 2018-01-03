@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
@@ -15,6 +16,7 @@ import javax.persistence.Table;
  *
  */
 
+@XmlRootElement
 @Entity
 @Table(name = "gerant")
 public class Gerant extends Employee {

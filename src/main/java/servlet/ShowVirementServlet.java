@@ -22,7 +22,7 @@ import service.IConseillerService;
 /**
  * Servlet implementation class ShowVirement
  */
-@WebServlet("/ShowVirement")
+@WebServlet("/ShowVirementServlet")
 public class ShowVirementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        @EJB

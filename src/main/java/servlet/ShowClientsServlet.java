@@ -11,11 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.jboss.logging.Logger;
+
 import dao.DaoException;
 import entity.ClientEntreprise;
 import entity.ClientParticulier;
 import entity.Conseiller;
 import service.IConseillerService;
+import util.Config;
 
 /**
  * Servlet implementation class ShowClientsServlet
@@ -24,6 +27,8 @@ import service.IConseillerService;
 public class ShowClientsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	private static Logger logger = Logger.getLogger(Config.LOG_HANDLER);
+	
 	@EJB
 	private IConseillerService conseillerService;
 
@@ -60,7 +65,10 @@ public class ShowClientsServlet extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/client_show_all.jsp").include(request, response);
 
 		} catch (DaoException e) {
-			request.setAttribute("msg", "Echec de l'identification, veuillez vous reconnecter");
+			String msg = "Probleme en requetant la database : " + e.getMessage() + " veuillez vous reessayer";
+			request.setAttribute("msg", msg);
+			logger.error(msg);
+			
 			request.getRequestDispatcher("LoginServlet").forward(request, response);
 		}
 	}

@@ -2,6 +2,7 @@ package entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
@@ -9,6 +10,7 @@ import javax.persistence.Table;
  *
  */
 
+@XmlRootElement
 @Entity
 @Table(name = "cliententreprise")
 public class ClientEntreprise extends Client {

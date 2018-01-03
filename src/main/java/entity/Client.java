@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
@@ -19,6 +20,7 @@ import javax.persistence.OneToOne;
  *
  */
 
+@XmlRootElement
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @NamedQueries({ @NamedQuery(name = "findAllClients", query = "select m from Client m"),

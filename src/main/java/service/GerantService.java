@@ -6,11 +6,12 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import dao.DaoException;
-import dao.IDaoAgence;
 import dao.IDaoConseiller;
-import dao.IDaoGerant;
 import entity.Agence;
 import entity.Client;
+import entity.ClientEntreprise;
+import entity.ClientParticulier;
+import entity.CompteCourant;
 import entity.Conseiller;
 import util.Config;
 
@@ -39,7 +40,7 @@ public class GerantService implements IGerantService {
 	public Conseiller chercherConseiller(Long idConseiller) throws DaoException {
 		return mDaoConseiller.getElementById(idConseiller);
 	}
-	
+
 	@Override
 	public void ajouterConseiller(Conseiller conseiller) throws DaoException {
 		mDaoConseiller.addElement(conseiller);
@@ -66,7 +67,6 @@ public class GerantService implements IGerantService {
 		return mDaoConseiller.selectAllByGerantId(idGerant);
 	}
 
-	
 	/**
 	 * Methode d'audit sur un agence selon les regle,
 	 * 
@@ -84,35 +84,21 @@ public class GerantService implements IGerantService {
 		for (Conseiller con : a.getGerant().getConseillerList()) {
 			for (Client clt : con.getClientsList()) {
 
-				// switch (clt.getTypeClient()) {
-				//
-				// case Client.CLIENT_PARTICULIER:
-				// // Chaque compte particulier n'est d�biteur de 5000
-				// if (clt.getCompteCourant().getSolde() <
-				// CompteCourant.MAXI_DECOUVERT_PARTICULIER) {
-				// listDebiteurs.add(clt);
-				// hasDebiteurs = true;
-				// }
-				//
-				// break;
-				//
-				// case Client.CLIENT_ENTREPRISE:
-				// // Chaque compte entreprise n'est d�biteur de 50,000
-				// if (clt.getCompteCourant().getSolde() <
-				// CompteCourant.MAXI_DECOUVERT_ENTREPRISE) {
-				// listDebiteurs.add(clt);
-				// hasDebiteurs = true;
-				// }
-				//
-				// break;
-				// default:
-				// return false;
-				// }
+				if (clt instanceof ClientParticulier
+						&& clt.getCompteCourant().getSolde() < CompteCourant.MAXI_DECOUVERT_PARTICULIER) {
+					listDebiteurs.add(clt);
+					hasDebiteurs = true;
+				}
+				if (clt instanceof ClientEntreprise
+						&& clt.getCompteCourant().getSolde() < CompteCourant.MAXI_DECOUVERT_ENTREPRISE) {
+					listDebiteurs.add(clt);
+					hasDebiteurs = true;
+				}
+
 			}
 		}
 
 		return !hasDebiteurs;
 	}
-
 
 }

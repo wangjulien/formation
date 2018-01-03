@@ -2,6 +2,7 @@ package entity;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
  *
  */
 
+@XmlRootElement
 @Entity
 @DiscriminatorValue(value = "COMPTE_EPARGNE")
 public class CompteEpargne extends Compte {

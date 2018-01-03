@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
@@ -22,6 +23,7 @@ import javax.persistence.TemporalType;
  *
  */
 
+@XmlRootElement
 @Entity
 @NamedQueries({ @NamedQuery(name = "findAllVirements", query = "select m from Virement m"),
 		@NamedQuery(name = "findVirementByClientId", query = "select m from Virement m join m.clientDebiteur c where c.id = :clientid") })

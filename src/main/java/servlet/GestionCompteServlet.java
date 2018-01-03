@@ -10,10 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.jboss.logging.Logger;
+
 import dao.DaoException;
 import entity.Client;
 import entity.Conseiller;
 import service.IConseillerService;
+import util.Config;
 
 /**
  * Servlet implementation class GestionCompteServlet
@@ -22,6 +25,8 @@ import service.IConseillerService;
 public class GestionCompteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	private static Logger logger = Logger.getLogger(Config.LOG_HANDLER);
+	
 	@EJB
 	private IConseillerService conseillerService;
 
@@ -69,8 +74,10 @@ public class GestionCompteServlet extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/compte_update.jsp").include(request, response);
 
 		} catch (DaoException e) {
-			request.setAttribute("msg",
-					"Probleme en requetant la database : " + e.getMessage() + " veuillez vous reessayer");
+			String msg = "Probleme en requetant la database : " + e.getMessage() + " veuillez vous reessayer";
+			request.setAttribute("msg", msg);
+			logger.error(msg);
+			
 			request.getRequestDispatcher("ShowClientsServlet").forward(request, response);
 		}
 	}
@@ -110,8 +117,10 @@ public class GestionCompteServlet extends HttpServlet {
 			request.getRequestDispatcher("ShowClientsServlet").include(request, response);
 	
 		} catch (DaoException e) {
-			request.setAttribute("msg",
-					"Probleme en requetant la database : " + e.getMessage() + " veuillez vous reessayer");
+			String msg = "Probleme en requetant la database : " + e.getMessage() + " veuillez vous reessayer";
+			request.setAttribute("msg", msg);
+			logger.error(msg);
+			
 			request.getRequestDispatcher("ShowClientsServlet").forward(request, response);
 		}
 	}

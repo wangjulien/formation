@@ -10,12 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.jboss.logging.Logger;
+
 import dao.DaoException;
 import entity.Client;
 import entity.Compte;
 import entity.Conseiller;
 import service.IConseillerService;
 import service.IVirementService;
+import util.Config;
 
 /**
  * Servlet implementation class OperationServ
@@ -24,7 +27,9 @@ import service.IVirementService;
 @WebServlet("/VirementServlet")
 public class VirementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
+	private static Logger logger = Logger.getLogger(Config.LOG_HANDLER);
+	
 	@EJB
 	private IVirementService virementService;
 
@@ -51,7 +56,7 @@ public class VirementServlet extends HttpServlet {
 
 			Conseiller user = (Conseiller) session.getAttribute("user");
 			
-			// liste des clients du conseiller logger
+			// liste des clients du conseiller logge
 			request.setAttribute("clientList", user.getClientsList());
 			
 			// tous les client de la banque
@@ -61,8 +66,11 @@ public class VirementServlet extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/virement.jsp").include(request, response);
 
 		} catch (DaoException e) {
-			request.setAttribute("msg", "Echec de l'identification, veuillez vous reconnecter");
-			request.getRequestDispatcher("LoginServlet").forward(request, response);
+			String msg = "Probleme en requetant la database : " + e.getMessage() + " veuillez vous reessayer";
+			request.setAttribute("msg", msg);
+			logger.error(msg);
+			
+			request.getRequestDispatcher("ShowClientsServlet").forward(request, response);
 		}
 	}
 
@@ -73,10 +81,20 @@ public class VirementServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			Long idDebiteur = Long.parseLong(request.getParameter("debiteurselect"));
-			Long idCrediteur = Long.parseLong(request.getParameter("crediteurselect"));
-			String typeDebiteur = request.getParameter("debcomptselect");
-			String typeCrediteur = request.getParameter("crdcomptselect");
+			// Pour IHM separer Client liste et Compte liste
+//			Long idDebiteur = Long.parseLong(request.getParameter("debiteurselect"));
+//			Long idCrediteur = Long.parseLong(request.getParameter("crediteurselect"));
+//			String typeDebiteur = request.getParameter("debcomptselect");
+//			String typeCrediteur = request.getParameter("crdcomptselect");
+			
+			String[] listeClientSelect = request.getParameter("listeClientSelect").split("-");
+			Long idDebiteur = Long.parseLong(listeClientSelect[0]);
+			String typeDebiteur = listeClientSelect[1];
+			
+			String[] listeAllClientSelect = request.getParameter("listeAllClientSelect").split("-");
+			Long idCrediteur = Long.parseLong(listeAllClientSelect[0]);
+			String typeCrediteur = listeAllClientSelect[1];
+			
 			double montant = Double.parseDouble(request.getParameter("montant"));
 
 			Client debiteur = conseillerService.chercherClient(idDebiteur);
@@ -96,9 +114,23 @@ public class VirementServlet extends HttpServlet {
 				cible = crediteur.getCompteEpargne();
 
 			if (virementService.faireVirement(debiteur, depart, crediteur, cible, montant)) {
-				request.setAttribute("msg",
-						"Virement reussi");
-				request.getRequestDispatcher("ShowClientsServlet").forward(request, response);
+				
+				// logger le virement
+				logger.info("Client (" + debiteur.getNom() + " " + debiteur.getPrenom() + ") " + " a effectue un virement : \n "
+						+ "compte depart : " + depart.getNumCompte()
+						+ "\nbeneficiaire : " + crediteur.getNom() + " " + crediteur.getPrenom() + " compte cible : " + cible.getNumCompte()
+						+ "\npour un montant : " + montant);
+				
+				request.setAttribute("msg",	"Virement reussi");
+				request.setAttribute("debiteur", debiteur);
+				request.setAttribute("depart", depart);
+				request.setAttribute("crediteur", crediteur);
+				request.setAttribute("cible", cible);
+				request.setAttribute("montant", montant);
+				
+				request.getRequestDispatcher("header.jsp").include(request, response);
+				request.getRequestDispatcher("WEB-INF/virement.jsp").include(request, response);
+				
 			} else {
 				request.setAttribute("msg",
 						"Montant du compte debiteur insuffisant, veuillez vous reessayer");
@@ -106,10 +138,12 @@ public class VirementServlet extends HttpServlet {
 			}
 
 		} catch (DaoException e) {
-			request.setAttribute("msg",
-					"Probleme a persister le virement dans la database : " + e.getMessage() + " veuillez vous reessayer");
+			String msg = "Probleme a persister le virement dans la database : " + e.getMessage() + " veuillez vous reessayer";
+			request.setAttribute("msg", msg);
+			logger.error(msg);
+			
 			request.getRequestDispatcher("ShowClientsServlet").forward(request, response);
 		}
-}
+	}
 
 }
