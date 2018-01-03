@@ -8,13 +8,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity abstract des cartes banquaire
  * 
  * @author JW NH
  *
  */
 
+@XmlRootElement
 @Entity
 @Table(name = "carte")
 @DiscriminatorColumn(name = "carte_type", discriminatorType = DiscriminatorType.STRING)

@@ -20,7 +20,7 @@
 						<li><a href="UpdateClientServlet">Ajouter un client</a></li>
 						<li class="divider"></li>
 						<li><a href="GestionCompteServlet">Gestion de compte</a></li>
-						<li><a href="GestionCarteServlet">Gestion de carte</a></li>
+						<li><a href="under_construction.html">Gestion de carte</a></li>
 						<li class="divider"></li>
 						<li><a href="VirementServlet">Virement</a></li>
 					</ul>
@@ -36,23 +36,21 @@
 							<c:choose>
 								<c:when test="${not empty clientList}">
 									<tr>
-										<td><label for="name">Selectionnez un client et
-												son compte</label> <select class="form-control">
+										<td><label for="listeClient">Selectionnez un client et
+												son compte</label> <select class="form-control" name="listeClient" >
 												<c:forEach items="${clientList}" var="client">
-
+													<c:if test="${client.compteCourant.etatActif}">
 													<option value="${client.compteCourant.id}">(${client.refClient})
 														${client.getNom()} ${client.getPrenom()}
-														<c:if test="${client.compteCourant.etatActif}">
-												Compte Courant : ${client.compteCourant.numCompte}
-											</c:if>
+														Compte Courant : ${client.compteCourant.numCompte}
 													</option>
-													<option value="${client.compteEpargne.id}">(${client.refClient})
-														${client.getNom()} ${client.getPrenom()}
-														<c:if test="${client.compteEpargne.etatActif}">
-												Compte Epargne : ${client.compteEpargne.numCompte}
-											</c:if>
-													</option>
-
+													</c:if>
+													<c:if test="${client.compteEpargne.etatActif}">
+														<option value="${client.compteEpargne.id}">(${client.refClient})
+															${client.getNom()} ${client.getPrenom()} Compte Epargne :
+															${client.compteEpargne.numCompte}
+														</option>
+													</c:if>
 												</c:forEach>
 										</select></td>
 									</tr>

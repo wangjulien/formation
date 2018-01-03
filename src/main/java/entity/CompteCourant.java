@@ -4,13 +4,16 @@ import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *   
+ * Entity CompteCourant herite de Compte (strategy SINGLE TABLE)
+ * 
  * @author JW NH
  *
  */
 
+@XmlRootElement
 @Entity
 @DiscriminatorValue(value = "COMPTE_COURANT")
 public class CompteCourant extends Compte {

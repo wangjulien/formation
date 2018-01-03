@@ -21,7 +21,7 @@
 						<li><a href="UpdateConseillerServlet">Ajouter un
 								conseiller</a></li>
 						<li class="divider"></li>
-						<li><a href="DoAuditServlet">Audit d'agence</a></li>
+						<li><a href="under_construction.html">Audit d'agence</a></li>
 					</ul>
 				</div>
 			</div>

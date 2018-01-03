@@ -7,13 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity agence
  * 
  * @author JW NH
  *
  */
 
+@XmlRootElement
 @Entity
 @Table(name = "agence")
 public class Agence {

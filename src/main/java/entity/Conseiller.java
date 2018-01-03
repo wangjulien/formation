@@ -10,13 +10,17 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity Conseiller herite de Employee (strategy TABLE PER CLASS)
+ * Il possede une liste de Client
  * 
  * @author JW NH
  *
  */
 
+@XmlRootElement
 @Entity
 @NamedQueries({ @NamedQuery(name = "findAllConseiller", query = "select m from Conseiller m"),
 	@NamedQuery(name = "findConseillersByGerandId", query = "select m from Conseiller m join m.gerant c where c.id = :gerid") })

@@ -9,7 +9,7 @@ import entity.ClientParticulier;
 /**
  * Gestion des Clients
  * 
- * @author JW NH JFA
+ * @author JW NH
  *
  */
 public interface IDaoClient extends IDaoObjet<Client> {
@@ -19,7 +19,7 @@ public interface IDaoClient extends IDaoObjet<Client> {
 	 * parametre
 	 * 
 	 * @param idConseiller
-	 * @return List<Client>
+	 * @return List
 	 */
 	public List<Client> selectAllClientByConseillerId(Long idConseiller)  throws DaoException;
 	

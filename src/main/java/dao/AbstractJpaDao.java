@@ -52,8 +52,8 @@ public abstract class AbstractJpaDao<T> {
 	/**
 	 * supprimer un objet dans une persistence
 	 * 
-	 * @param key
-	 *            : cle de l'objetclientsFound a supprimer
+	 * @param t
+	 *            : objetclientsFound a supprimer
 	 */
 	public void deleteElement(T t) throws DaoException {
 		try {

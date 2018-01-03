@@ -25,9 +25,10 @@
 								<li><a href="UpdateClientServlet">Ajouter un client</a></li>
 								<li class="divider"></li>
 								<li><a href="GestionCompteServlet">Gestion de compte</a></li>
-								<li><a href="GestionCarteServlet">Gestion de carte</a></li>
+								<li><a href="under_construction.html">Gestion de carte</a></li>
 								<li class="divider"></li>
 								<li><a href="VirementServlet">Virement</a></li>
+								<li><a href="under_construction.html">Histories de virements</a></li>
 
 							</c:when>
 
@@ -37,7 +38,7 @@
 								<li><a href="ShowConseillersServlet">Lister all conseillers</a></li>
 								<li><a href="UpdateConseillerServlet">Ajouter un conseiller</a></li>
 								<li class="divider"></li>
-								<li><a href="DoAuditServlet">Audit d'agence</a></li>
+								<li><a href="under_construction.html">Audit d'agence</a></li>
 							</c:when>
 
 						</c:choose>

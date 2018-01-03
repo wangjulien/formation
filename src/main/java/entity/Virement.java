@@ -15,13 +15,16 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity Virement qui serve comme une historique des virements effectues
  * 
  * @author JW NH
  *
  */
 
+@XmlRootElement
 @Entity
 @NamedQueries({ @NamedQuery(name = "findAllVirements", query = "select m from Virement m"),
 		@NamedQuery(name = "findVirementByClientId", query = "select m from Virement m join m.clientDebiteur c where c.id = :clientid") })
@@ -52,12 +55,6 @@ public class Virement {
 	private Compte cible;
 
 	private double montant;
-
-	/**
-	 * @param date
-	 * @param idCompteDepart
-	 * @param idCompteCible
-	 */
 
 	public Virement() {
 		this.dateOperation = new Timestamp(System.currentTimeMillis());

@@ -33,9 +33,10 @@
 											<li><a href="UpdateClientServlet">Ajouter un client</a></li>
 											<li class="divider"></li>
 											<li><a href="GestionCompteServlet">Gestion de compte</a></li>
-											<li><a href="GestionCarteServlet">Gestion de carte</a></li>
+											<li><a href="under_construction.html">Gestion de carte</a></li>
 										</ul></li>
 									<li><a href="VirementServlet">Virement</a></li>
+									
 								</c:when>
 								
 								<c:when test="${user.role eq 'G'.charAt(0)}">
@@ -49,14 +50,14 @@
 											<li><a href="UpdateConseillerServlet">Ajouter un
 													conseiller</a></li>
 										</ul></li>
-									<li><a href="DoAuditServlet">Audit d'agence</a></li>
+									<li><a href="under_construction.html">Audit d'agence</a></li>
 								</c:when>
 								
 							</c:choose>
 
 						</ul>
 						<ul class="nav pull-right">
-							<li><a href="profile.jsp">${user.nom} ${user.prenom}</a></li>
+							<li><a href="under_construction.html">${user.nom} ${user.prenom}</a></li>
 							<li><a href="LogoutServlet">Logout</a></li>
 						</ul>
 					</div>

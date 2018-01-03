@@ -13,12 +13,16 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity Compte abstract (strategy SINGLE TABLE)
+ * 
  * @author JW NH
  *
  */
 
+@XmlRootElement
 @Entity
 @Table(name = "compte")
 @DiscriminatorColumn(name = "compte_type", discriminatorType = DiscriminatorType.STRING)

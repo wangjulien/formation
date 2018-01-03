@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.jboss.logging.Logger;
+
 import dao.DaoException;
 import entity.Adresse;
 import entity.Client;
@@ -17,14 +19,21 @@ import entity.ClientEntreprise;
 import entity.ClientParticulier;
 import entity.Conseiller;
 import service.IConseillerService;
+import util.Config;
 
 /**
  * Servlet implementation class UpdateClientServlet
+ * Il fournit les services : mettre a jour les informations d'un client, ajouter un nouveau client
+ * 
+ * @author JW NH
+ * 
  */
 @WebServlet("/UpdateClientServlet")
 public class UpdateClientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	private static Logger logger = Logger.getLogger(Config.LOG_HANDLER);
+	
 	@EJB
 	private IConseillerService conseillerService;
 
@@ -65,8 +74,10 @@ public class UpdateClientServlet extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/client_update.jsp").include(request, response);
 
 		} catch (DaoException e) {
-			request.setAttribute("msg",
-					"Probleme en requetant la database : " + e.getMessage() + " veuillez vous reessayer");
+			String msg = "Probleme en requetant la database : " + e.getMessage() + " veuillez vous reessayer";
+			request.setAttribute("msg", msg);
+			logger.error(msg);
+			
 			request.getRequestDispatcher("ShowClientsServlet").forward(request, response);
 		}
 	}
@@ -127,8 +138,10 @@ public class UpdateClientServlet extends HttpServlet {
 			}
 
 		} catch (DaoException e) {
-			request.setAttribute("msg",
-					"Probleme en requetant la database : " + e.getMessage() + " veuillez vous reessayer");
+			String msg = "Probleme en requetant la database : " + e.getMessage() + " veuillez vous reessayer";
+			request.setAttribute("msg", msg);
+			logger.error(msg);
+			
 			request.getRequestDispatcher("ShowClientsServlet").forward(request, response);
 		}
 	}

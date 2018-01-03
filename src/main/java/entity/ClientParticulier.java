@@ -2,13 +2,16 @@ package entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity ClientParticulier heriter de Client
  * 
  * @author JW NH
  *
  */
 
+@XmlRootElement
 @Entity
 @Table(name = "clientparticulier")
 public class ClientParticulier extends Client {

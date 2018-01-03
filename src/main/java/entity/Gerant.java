@@ -8,13 +8,16 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity Gerant herite de Employee (strategy TABLE PER CLASS)
  * 
  * @author JW NH
  *
  */
 
+@XmlRootElement
 @Entity
 @Table(name = "gerant")
 public class Gerant extends Employee {

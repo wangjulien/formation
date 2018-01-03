@@ -25,10 +25,11 @@ public class LoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
+	private static Logger logger = Logger.getLogger(Config.LOG_HANDLER);
+
 	@EJB
 	private ILoginService loginService;
 	
-	private static Logger logger = Logger.getLogger(Config.LOG_HANDLER);
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -68,7 +69,8 @@ public class LoginServlet extends HttpServlet {
 			request.getRequestDispatcher("header.jsp").include(request, response);
 			request.getRequestDispatcher("welcome.jsp").include(request, response);
 			
-			logger.warn("Client (role " + user.getRole() + ") " + user.getNom() + " " + user.getPrenom() + " se logge.");
+			// logger l'utilisateur
+			logger.info("Utilisateur (role " + user.getRole() + ") " + user.getNom() + " " + user.getPrenom() + " se logge.");
 
 		} catch (DaoException e) {
 			request.setAttribute("msg", "Echec de l'identification : " + e.getMessage() + "  veuillez vous reconnecter");

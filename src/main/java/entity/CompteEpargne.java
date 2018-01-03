@@ -2,13 +2,16 @@ package entity;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity CompteEpargne herite de Compte (strategy SINGLE TABLE)
  *
  * @author JW NH
  *
  */
 
+@XmlRootElement
 @Entity
 @DiscriminatorValue(value = "COMPTE_EPARGNE")
 public class CompteEpargne extends Compte {
