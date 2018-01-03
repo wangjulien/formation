@@ -12,6 +12,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
+ * Entity abstract Employee (strategy TABLE PER CLASS)
+ * 
  * @author JW NH
  *
  */

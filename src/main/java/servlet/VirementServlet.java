@@ -22,6 +22,10 @@ import util.Config;
 
 /**
  * Servlet implementation class OperationServ
+ * Il fournit la service de faire un virement compte a compte
+ * 
+ * @author JW NH
+ *
  */
 
 @WebServlet("/VirementServlet")

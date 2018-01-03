@@ -15,9 +15,12 @@ import javax.servlet.http.HttpSession;
 
 /**
  * Filtre les acces des utilisateurs L'utilisateur doit avoir une session valide
- * pour acceder a toute page autre que: "Autentification" ou "index.jsp"
+ * pour acceder a toute page autre que: "LoginServlet" ou "index.jsp"
  * 
  * Servlet Filter implementation class LoginFilter
+ * 
+ * @author JW NH
+ * 
  */
 @WebFilter("/*")
 public class LoginFilter implements Filter {

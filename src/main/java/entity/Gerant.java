@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity Gerant herite de Employee (strategy TABLE PER CLASS)
  * 
  * @author JW NH
  *

@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * La classe VisaPremium h�rite de Carte et a un num�ro de carte.
+ * La classe VisaPremium herite de Carte et a un numero de carte.
  * 
  * @author JW NH
  *

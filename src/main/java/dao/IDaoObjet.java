@@ -42,7 +42,7 @@ public interface IDaoObjet<T> {
 	/**
 	 * supprimer un objet dans une persistence
 	 * 
-	 * @param key : cle de l'objet a supprimer
+	 * @param t : l'objet a supprimer
 	 */
 	public void deleteElement(T t) throws DaoException;
 }

@@ -15,6 +15,11 @@ import service.IGerantService;
 
 /**
  * Servlet implementation class ShowClientsServlet
+ * 
+ * Il fournit la service de lister les conseillers du gerant logge
+ * 
+ * @author JW NH
+ * 
  */
 @WebServlet("/ShowConseillersServlet")
 public class ShowConseillersServlet extends HttpServlet {

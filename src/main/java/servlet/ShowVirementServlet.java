@@ -19,6 +19,11 @@ import service.IConseillerService;
 
 /**
  * Servlet implementation class ShowVirement
+ * Il fournit la service de lister les virement d'un client selectionne
+ * ToDo : servlet en cours de developper 
+ * 
+ * @author JW NH
+ * 
  */
 @WebServlet("/ShowVirement")
 public class ShowVirementServlet extends HttpServlet {

@@ -20,7 +20,12 @@ import util.Config;
 
 /**
  * Servlet implementation class GestionCompteServlet
+ * Il fournit les services : activer un compte non active, modifier un compte active
+ * 
+ * @author JW NH
+ * 
  */
+
 @WebServlet("/GestionCompteServlet")
 public class GestionCompteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

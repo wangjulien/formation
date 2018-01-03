@@ -18,6 +18,7 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity Virement qui serve comme une historique des virements effectues
  * 
  * @author JW NH
  *
@@ -54,12 +55,6 @@ public class Virement {
 	private Compte cible;
 
 	private double montant;
-
-	/**
-	 * @param date
-	 * @param idCompteDepart
-	 * @param idCompteCible
-	 */
 
 	public Virement() {
 		this.dateOperation = new Timestamp(System.currentTimeMillis());

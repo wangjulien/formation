@@ -6,7 +6,6 @@ import dao.DaoException;
 import entity.Client;
 import entity.ClientEntreprise;
 import entity.ClientParticulier;
-import entity.Compte;
 
 public interface IConseillerService {
 	
@@ -25,6 +24,4 @@ public interface IConseillerService {
 	public List<ClientParticulier> listerClientsParticulierDeConseiller(Long idConseiller) throws DaoException;
 	
 	public List<ClientEntreprise> listerClientsEntrepriseDeConseiller(Long idConseiller) throws DaoException;
-	
-	public void activerClientCompte(Client client, Compte compte) throws DaoException;
 }

@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity Conseiller herite de Employee (strategy TABLE PER CLASS)
+ * Il possede une liste de Client
  * 
  * @author JW NH
  *

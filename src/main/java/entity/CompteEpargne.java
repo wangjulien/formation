@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity CompteEpargne herite de Compte (strategy SINGLE TABLE)
  *
  * @author JW NH
  *

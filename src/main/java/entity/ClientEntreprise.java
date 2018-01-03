@@ -5,6 +5,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity ClientEntreprise heriter de Client
  * 
  * @author JW NH
  *

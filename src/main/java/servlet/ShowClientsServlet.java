@@ -22,6 +22,10 @@ import util.Config;
 
 /**
  * Servlet implementation class ShowClientsServlet
+ * Il fournit la service de lister les clients du conseiller logge
+ * 
+ * @author JW NH
+ * 
  */
 @WebServlet("/ShowClientsServlet")
 public class ShowClientsServlet extends HttpServlet {

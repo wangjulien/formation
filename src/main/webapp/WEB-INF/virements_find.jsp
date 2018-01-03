@@ -20,10 +20,10 @@
 						<li><a href="UpdateClientServlet">Ajouter un client</a></li>
 						<li class="divider"></li>
 						<li><a href="GestionCompteServlet">Gestion de compte</a></li>
-						<li><a href="GestionCarteServlet">Gestion de carte</a></li>
+						<li><a href="under_construction.html">Gestion de carte</a></li>
 						<li class="divider"></li>
 						<li><a href="VirementServlet">Virement</a></li>
-						<li><a href="ShowVirementServlet">Histories de virements</a></li>
+						<li><a href="under_construction.html">Histories de virements</a></li>
 					</ul>
 				</div>
 			</div>

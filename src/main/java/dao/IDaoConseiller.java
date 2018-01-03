@@ -18,7 +18,7 @@ public interface IDaoConseiller extends IDaoObjet<Conseiller> {
 	 * parametre
 	 * 
 	 * @param idAgence
-	 * @return List<Conseiller> ou null
+	 * @return List ou null
 	 */
 	public List<Conseiller> selectAllByGerantId(Long idGerant) throws DaoException;
 

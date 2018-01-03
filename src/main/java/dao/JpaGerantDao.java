@@ -13,7 +13,7 @@ import util.Config;
  * Class DAO client qui utilise les statement prepares CRUD et interface
  * generique
  * 
- * @author JW NH FJA
+ * @author JW NH
  *
  */
 

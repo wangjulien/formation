@@ -16,6 +16,8 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity Compte abstract (strategy SINGLE TABLE)
+ * 
  * @author JW NH
  *
  */

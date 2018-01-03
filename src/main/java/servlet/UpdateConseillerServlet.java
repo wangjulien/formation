@@ -21,6 +21,9 @@ import util.Config;
 
 /**
  * Servlet implementation class UpdateClientServlet
+ * Il fournit les services : mettre a jour les informations d'un conseiller, ajouter un nouveau conseiller
+ * 
+ * @author JW NH
  */
 @WebServlet("/UpdateConseillerServlet")
 public class UpdateConseillerServlet extends HttpServlet {

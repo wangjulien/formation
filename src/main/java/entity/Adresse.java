@@ -3,6 +3,11 @@ package entity;
 import javax.persistence.Embeddable;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Entity adresse EMBEDDED dans Client et Employee
+ * @author JW NH
+ *
+ */
 @XmlRootElement
 @Embeddable
 public class Adresse {

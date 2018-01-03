@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity Client abstract (strategy TABLE PER CLASS)
  * 
  * @author JW NH
  *

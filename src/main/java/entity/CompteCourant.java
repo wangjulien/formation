@@ -7,7 +7,8 @@ import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *   
+ * Entity CompteCourant herite de Compte (strategy SINGLE TABLE)
+ * 
  * @author JW NH
  *
  */

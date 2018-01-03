@@ -10,7 +10,6 @@ import dao.IDaoClient;
 import entity.Client;
 import entity.ClientEntreprise;
 import entity.ClientParticulier;
-import entity.Compte;
 import util.Config;
 
 /**
@@ -46,7 +45,7 @@ public class ConseillerService implements IConseillerService {
 	/**
 	 * Ajout d'un client dans la persistence
 	 * @param client : client a ajouter
-	 * @throws DaoException 
+	 * @throws DaoException DaoException
 	 */
 	public void ajouterClient(Client client) throws DaoException {
 		
@@ -63,7 +62,7 @@ public class ConseillerService implements IConseillerService {
 	/**
 	 * Mettre a jour un client dans la persistence
 	 * @param client : le client modifie
-	 * @throws DaoException 
+	 * @throws DaoException  DaoException
 	 */
 	public void modifierClient(Client client) throws DaoException {
 		mDaoClient.updateElement(client);
@@ -72,7 +71,7 @@ public class ConseillerService implements IConseillerService {
 	/**
 	 * Suppression d'un client donne dans persistence
 	 * @param client : le client a supprimer
-	 * @throws DaoException 
+	 * @throws DaoException  DaoException
 	 */
 	public void supprimerClient(Client client) throws DaoException {
 		mDaoClient.deleteElement(client);;
@@ -81,7 +80,7 @@ public class ConseillerService implements IConseillerService {
 	/**
 	 * Recupere tous les client de la persistence
 	 * @return : une liste de client
-	 * @throws DaoException 
+	 * @throws DaoException  DaoException
 	 */
 	public List<Client> listerTousClients() throws DaoException {
 		return mDaoClient.getAllElement();
@@ -91,20 +90,12 @@ public class ConseillerService implements IConseillerService {
 	/**
 	 * Recupere tous les client de la persistence
 	 * @return : une liste de client
-	 * @throws DaoException 
+	 * @throws DaoException  DaoException
 	 */
 	public List<Client> listerClientsDeConseiller(Long idConseiller) throws DaoException {
 		return mDaoClient.selectAllClientByConseillerId(idConseiller);
 
 	}
-
-
-	@Override
-	public void activerClientCompte(Client client, Compte compte) throws DaoException {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 	@Override
 	public List<ClientParticulier> listerClientsParticulierDeConseiller(Long idConseiller) throws DaoException {

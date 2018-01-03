@@ -23,6 +23,10 @@ import util.Config;
 
 /**
  * Servlet implementation class UpdateClientServlet
+ * Il fournit les services : mettre a jour les informations d'un client, ajouter un nouveau client
+ * 
+ * @author JW NH
+ * 
  */
 @WebServlet("/UpdateClientServlet")
 public class UpdateClientServlet extends HttpServlet {

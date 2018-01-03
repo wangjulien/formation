@@ -10,6 +10,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity agence
  * 
  * @author JW NH
  *

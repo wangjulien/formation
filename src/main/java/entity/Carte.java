@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Entity abstract des cartes banquaire
  * 
  * @author JW NH
  *
