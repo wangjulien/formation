@@ -4,13 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
+import org.formation.proxibanque.dao.DaoException;
+import org.formation.proxibanque.entity.Client;
+import org.formation.proxibanque.service.ConseillerService;
+import org.formation.proxibanque.service.IConseillerService;
 import org.junit.jupiter.api.Test;
 
-import dao.DaoException;
-import entity.Client;
 import junit.framework.Assert;
-import service.ConseillerService;
-import service.IConseillerService;
 
 public class TestAccesBD2 {
 

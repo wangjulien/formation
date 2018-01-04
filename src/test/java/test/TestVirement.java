@@ -4,20 +4,20 @@ import java.util.List;
 
 import javax.ejb.EJB;
 
+import org.formation.proxibanque.dao.DaoException;
+import org.formation.proxibanque.dao.JpaClientDao;
+import org.formation.proxibanque.entity.Client;
+import org.formation.proxibanque.entity.ClientParticulier;
+import org.formation.proxibanque.entity.Compte;
+import org.formation.proxibanque.entity.CompteCourant;
+import org.formation.proxibanque.service.IConseillerService;
+import org.formation.proxibanque.service.IVirementService;
+import org.formation.proxibanque.service.VirementService;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import dao.DaoException;
-import dao.JpaClientDao;
-import entity.Client;
-import entity.ClientParticulier;
-import entity.Compte;
-import entity.CompteCourant;
 import junit.framework.Assert;
 import junit.framework.TestCase;
-import service.IConseillerService;
-import service.IVirementService;
-import service.VirementService;
 
 public class TestVirement extends TestCase {
 	@Test

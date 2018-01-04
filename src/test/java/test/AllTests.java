@@ -4,16 +4,16 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.formation.proxibanque.dao.DaoException;
+import org.formation.proxibanque.entity.Client;
+import org.formation.proxibanque.service.ConseillerService;
+import org.formation.proxibanque.service.IConseillerService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import dao.DaoException;
-import entity.Client;
 import junit.framework.Assert;
-import service.ConseillerService;
-import service.IConseillerService;
 
 @RunWith(Suite.class)
 @SuiteClasses({ TestVirement.class })

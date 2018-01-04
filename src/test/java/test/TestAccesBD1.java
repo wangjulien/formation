@@ -2,11 +2,10 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.formation.proxibanque.dao.DaoException;
+import org.formation.proxibanque.dao.JpaClientDao;
+import org.formation.proxibanque.entity.Client;
 import org.junit.jupiter.api.Test;
-
-import dao.DaoException;
-import dao.JpaClientDao;
-import entity.Client;
 
 public class TestAccesBD1 {
 

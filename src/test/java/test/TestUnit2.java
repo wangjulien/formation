@@ -2,10 +2,9 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.formation.proxibanque.entity.CompteCourant;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-
-import entity.CompteCourant;
 
 public class TestUnit2 {
 

@@ -2,9 +2,8 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.formation.proxibanque.entity.ClientParticulier;
 import org.junit.jupiter.api.Test;
-
-import entity.ClientParticulier;
 
 public class TestUnit1 {
 
