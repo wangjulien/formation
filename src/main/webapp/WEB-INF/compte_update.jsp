@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<div class="span9">
-				<div id="login-page">
+				<div id="edit-page" class="container">
 					<strong class="msg-info">${msg}</strong> <br>
 					<h3>Compte information :</h3>
 					<form class="well" action="GestionCompteServlet" method="post">

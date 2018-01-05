@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<div class="span9">
-				<div id="login-page" class="container">
+				<div id="edit-page" class="container">
 					<strong class="msg-info">${msg}</strong> <br>
 
 					<h3>Client information :</h3>
@@ -82,66 +82,69 @@
 							</tr>
 
 							<tr>
-								<td>
-									<div class="row-fluid">
-										<c:if test="${client.compteCourant.etatActif}">
-											<h3>Compte Courant :</h3>
-											<input type="hidden" name="courant" value="true">
-											<table>
+								<td><c:if test="${client.compteCourant.etatActif}">
 
-												<tr>
-													<td>Date d'ouverture : <br> <input type="text"
-														name="date" value="${client.compteCourant.dateOuverture}"
-														disabled />
-													</td>
-												</tr>
-												<tr>
-													<td>Numero compte : <br> <input type="text"
-														name="numcompte" value="${client.compteCourant.numCompte}" />
-													</td>
-												</tr>
-												<tr>
-													<td>Solde : <br> <input type="text" name="solde"
-														value="${client.compteCourant.solde}" />
-													</td>
-												</tr>
-												<tr>
-													<td>Decouvert Authorise : <br> <input type="text"
-														name="decouvert"
-														value="${compteCourant.decouvertAuthorise}" />
-													</td>
-												</tr>
-											</table>
-										</c:if>
-										<c:if test="${client.compteEpargne.etatActif}">
-											<h3>Compte Epargne :</h3>
-											<input type="hidden" name="epargne" value="true">
-											<table>
-												<tr>
-													<td>Date d'ouverture : <br> <input type="text"
-														name="date" value="${client.compteEpargne.dateOuverture}"
-														disabled />
-													</td>
-												</tr>
-												<tr>
-													<td>Numero compte : <br> <input type="text"
-														name="numcompte" value="${client.compteEpargne.numCompte}" />
-													</td>
-												</tr>
-												<tr>
-													<td>Solde : <br> <input type="text" name="solde"
-														value="${client.compteEpargne.solde}" />
-													</td>
-												</tr>
-												<tr>
-													<td>Taux Interet : <br> <input type="text"
-														name="taux" value="${client.compteEpargne.tauxInteret}" />
-													</td>
-												</tr>
-											</table>
-										</c:if>
-									</div>
-								</td>
+										<table>
+											<tr>
+												<td><h3>Compte Courant :</h3> <input type="hidden"
+													name="courant" value="true"></td>
+											</tr>
+											<tr>
+												<td>Date d'ouverture : <br> <input type="text"
+													name="date" value="${client.compteCourant.dateOuverture}"
+													disabled />
+												</td>
+											</tr>
+											<tr>
+												<td>Numero compte : <br> <input type="text"
+													name="numcompte" value="${client.compteCourant.numCompte}" />
+												</td>
+											</tr>
+											<tr>
+												<td>Solde : <br> <input type="text" name="solde"
+													value="${client.compteCourant.solde}" />
+												</td>
+											</tr>
+											<tr>
+												<td>Decouvert Authorise : <br> <input type="text"
+													name="decouvert"
+													value="${client.compteCourant.decouvertAuthorise}" />
+												</td>
+											</tr>
+										</table>
+									</c:if> 
+									</td><td>
+									<c:if test="${client.compteEpargne.etatActif}">
+
+										<table>
+											<tr>
+												<td><h3>Compte Epargne :</h3> <input type="hidden"
+													name="epargne" value="true"></td>
+											</tr>
+											<tr>
+											<tr>
+												<td>Date d'ouverture : <br> <input type="text"
+													name="date" value="${client.compteEpargne.dateOuverture}"
+													disabled />
+												</td>
+											</tr>
+											<tr>
+												<td>Numero compte : <br> <input type="text"
+													name="numcompte" value="${client.compteEpargne.numCompte}" />
+												</td>
+											</tr>
+											<tr>
+												<td>Solde : <br> <input type="text" name="solde"
+													value="${client.compteEpargne.solde}" />
+												</td>
+											</tr>
+											<tr>
+												<td>Taux Interet : <br> <input type="text"
+													name="taux" value="${client.compteEpargne.tauxInteret}" />
+												</td>
+											</tr>
+										</table>
+									</c:if></td>
 							</tr>
 
 							<c:choose>

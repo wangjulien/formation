@@ -26,7 +26,7 @@
 				</div>
 			</div>
 			<div class="span9">
-				<div id="login-page" class="container">
+				<div id="edit-page" class="container">
 					<strong class="msg-info">${msg}</strong> <br>
 
 					<h3>Conseiller information :</h3>
